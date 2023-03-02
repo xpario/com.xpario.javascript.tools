@@ -3,9 +3,9 @@
     "crypto-es": "^1.2.7",
     "libphonenumber-js": "^1.10.21"
   },
-  "name": "com.xpario.javascript.tools",
+  "name": "@xpario/javascript-tools",
   "description": "Various helper methods for Javascript",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "src/index.js",
   "devDependencies": {},
   "scripts": {
