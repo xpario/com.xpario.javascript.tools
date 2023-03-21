@@ -5,9 +5,8 @@
   },
   "name": "@xpario/javascript-tools",
   "description": "Various helper methods for Javascript",
-  "version": "0.2.0",
+  "version": "0.2.4",
   "main": "src/index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

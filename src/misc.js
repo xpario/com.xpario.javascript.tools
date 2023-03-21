@@ -1,6 +1,5 @@
 // noinspection JSUnusedGlobalSymbols
 
-import {isString} from "./strings";
 import {AsYouType, isValidPhoneNumber} from "libphonenumber-js";
 
 export function hello_world() {
@@ -117,4 +116,13 @@ export function markRequired(label) {
 
 export async function wait(ms = 5000) {
     await new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export function isString(x) {
+    return x?.constructor === String;
+}
+
+export function trimIfString(x) {
+    if (typeof x === 'string' || x instanceof String) x = x.trim();
+    return x;
 }

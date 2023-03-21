@@ -1,13 +1,12 @@
 
 // noinspection JSUnusedGlobalSymbols
 
-export function isString(x) {
-    return x?.constructor === String;
-}
-
-export function trimString(x) {
-    if (typeof x === 'string' || x instanceof String) x = x.trim();
-    return x;
+String.prototype.jsonMinify = function () {
+    let result = this;
+    if (this.isJSON()) {
+        result = JSON.stringify(JSON.parse(this));
+    }
+    return result;
 }
 
 String.prototype.jsonMinify = function () {

@@ -2,7 +2,7 @@
 
 import CryptoES from "crypto-es";
 
-const Crypto = {
+const SimpleCrypto = {
     encryptData: function (text, key) {
         return CryptoES.AES.encrypt(text, key).toString();
     },
@@ -13,4 +13,4 @@ const Crypto = {
     }
 }
 
-export default Crypto
+export default SimpleCrypto
