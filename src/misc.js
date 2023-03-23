@@ -126,3 +126,7 @@ export function trimIfString(x) {
     if (typeof x === 'string' || x instanceof String) x = x.trim();
     return x;
 }
+
+export function isNull(val) {
+    return val == null;
+}
