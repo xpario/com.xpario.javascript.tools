@@ -86,7 +86,7 @@ export function isValidSQLId(id) {
         valid = !isEmpty(id);
     }
     if (isNumber(id)) {
-        valid = id > -1;
+        valid = id > 0;
     }
     return valid;
 }
