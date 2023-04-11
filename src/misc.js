@@ -110,6 +110,17 @@ export function isDefined(variable) {
     return (typeof variable !== typeof undefined);
 }
 
+export function isEmptyObject(obj) {
+    let val = false;
+    if (isObject(obj)) {
+        val = Object.keys(obj).length === 0;
+    }
+    return val;
+}
+export function isObjectDefined(obj) {
+    return (isObject(obj) && obj !== null && obj !== {});
+}
+
 export function markRequired(label) {
     return label + '*';
 }
