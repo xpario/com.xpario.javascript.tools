@@ -19,4 +19,8 @@ Number.prototype.covertKGToLbs = function () {
     return (this * mass_factor);
 }
 
+Number.safeToString = function (value) {
+    return (value === undefined || value === null) ? '' : value.toString();
+}
+
 export default Number;
