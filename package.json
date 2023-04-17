@@ -1,14 +1,14 @@
 {
   "name": "@xpario/javascript-tools",
   "description": "Various helper methods for Javascript",
-  "version": "0.2.20",
+  "version": "0.2.40",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "crypto-es": "^1.2.7",
-    "libphonenumber-js": "^1.10.21"
+    "libphonenumber-js": "^1.10.26"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/xpario/com.xpario.javascript.tools/issues"
   },
-  "homepage": "https://github.com/xpario/com.xpario.javascript.tools#readme"
+  "homepage": "https://github.com/xpario/com.xpario.javascript.tools#readme",
+  "devDependencies": {}
 }
