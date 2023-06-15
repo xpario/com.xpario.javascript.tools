@@ -43,7 +43,10 @@ export function isJSON(item) {
 
 export function isEmpty(val) {
     let result = true;
-    if (isString(val) || Array.isArray(val)) result = val.isEmpty();
+    let test = val;
+    if (isNullOrUndefined(test)) return true;
+    if (isString(test)) test = test.trim();
+    if (isString(test) || Array.isArray(test)) result = test.isEmpty();
     return result;
 }
 
@@ -144,4 +147,8 @@ export function trimIfString(x) {
 
 export function isNull(val) {
     return val == null;
+}
+
+export function isNullOrUndefined(val) {
+    return isNull(val) || !isDefined(val);
 }
