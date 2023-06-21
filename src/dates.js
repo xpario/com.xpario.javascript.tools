@@ -1,22 +1,34 @@
 import {isNull} from "./misc";
 
-export function getDateWithoutTime(date) {
+export function getCurrentLocalDateTime() {
+    let diff = new Date() - (new Date().getTimezoneOffset() * 60 * 1000);
+    return new Date(diff);
+}
+
+function getTimeZoneOffsetString() {
+    const dt = new Date();
+    const tz = dt.getTimezoneOffset();
+    const tz_hour = Math.floor(tz / 60);
+    if (tz_hour <= 0) return '+' + tz_hour.toString();
+    if (tz_hour > 0) return '-' + tz_hour.toString();
+}
+
+function getEqualizedISODate(date) {
     const utc_string = date.toISOString();
     const date_string = utc_string.split('T')[0];
-    return new Date(date_string);
+    const iso_string = date_string + 'T00:00:00' + getTimeZoneOffsetString() + ':00';
+    return new Date(iso_string);
 }
 
 export function compare(date1, date2) {
     if (isNull(date1) || isNull(date2)) return 0;
-    if(typeof date1 === 'string') date1 = new Date(date1);
-    if(typeof date2 === 'string') date2 = new Date(date2);
 
-    const date1_date = getDateWithoutTime(date1);
-    const date2_date = getDateWithoutTime(date2);
+    const date1a = getEqualizedISODate(date1);
+    const date2a = getEqualizedISODate(date2);
 
-    if (date1_date > date2_date) return 1;
-    if (date1_date === date2_date) return 0;
-    if (date1_date < date2_date) return -1;
+    if (date1a > date2a) return 1;
+    if (date1a === date2a) return 0;
+    if (date1a < date2a) return -1;
 
     return 0;
 
