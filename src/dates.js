@@ -13,7 +13,7 @@ function getTimeZoneOffsetString() {
     if (tz_hour > 0) return '-' + tz_hour.toString();
 }
 
-function getEqualizedISODate(date) {
+export function getEqualizedISODate(date) {
     const utc_string = date.toISOString();
     const date_string = utc_string.split('T')[0];
     const iso_string = date_string + 'T00:00:00' + getTimeZoneOffsetString() + ':00';
