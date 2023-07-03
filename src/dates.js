@@ -14,6 +14,8 @@ function getTimeZoneOffsetString() {
 }
 
 export function getEqualizedISODate(date) {
+    if (isNull(date)) return null;
+    if (isNaN(date)) return null;
     const utc_string = date.toISOString();
     const date_string = utc_string.split('T')[0];
     const iso_string = date_string + 'T00:00:00' + getTimeZoneOffsetString() + ':00';
