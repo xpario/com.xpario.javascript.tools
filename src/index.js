@@ -4,5 +4,7 @@ import Number from './unit-conversion';
 import SimpleCrypto  from "./encrypt";
 import * as Tools from "./misc";
 import * as Dates from "./dates";
+import * as Telephone from "./telephone";
 
-export {Array, String, Number, SimpleCrypto, Tools, Dates}
+
+export {Array, String, Number, SimpleCrypto, Tools, Dates, Telephone}

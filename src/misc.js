@@ -1,6 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
-import {AsYouType, isValidPhoneNumber} from "libphonenumber-js";
 
 export function hello_world() {
     alert('hello world!');
@@ -70,19 +67,6 @@ export function toType(obj) {
     return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
 }
 
-export function formatPhoneNumber(num, code = 'US') {
-    let result ='';
-    if (isNumber(num)) num = num.toString();
-
-    if (num) {
-        result = new AsYouType(code).input(stripChars(num));
-        //Below if fix for bug in libphonenumber-js
-        if (result.right(1) === ')') result = result.left(result.length - 1);
-    }
-
-    return result;
-}
-
 export function isValidSQLId(id) {
     let valid = false;
     if (isString(id)) {
@@ -94,18 +78,8 @@ export function isValidSQLId(id) {
     return valid;
 }
 
-export function validatePhoneNumber(num, code = 'US') {
-    if (isNumber(num)) num = num.toString();
-    let result = false;
-
-    if (num) {
-        result = isValidPhoneNumber(num, code);
-    }
-
-    return result;
-}
-
 export function stripChars(str) {
+    if(!isString(str)) return str;
     return str.replace(/\D/g, '');
 }
 
