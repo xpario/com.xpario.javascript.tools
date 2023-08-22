@@ -1,4 +1,4 @@
-import {isNumber, stripChars} from "./misc";
+import {isNumber, isString, stripChars} from "./misc";
 
 import {
     formatIncompletePhoneNumber,
@@ -11,8 +11,9 @@ import {
 
 function reformatInternationalNumber(num, code = 'US', callingCode = '1') {
     let num_raw = num
-if (isNumber(num_raw)) num_raw = num_raw.toString();
-num_raw = stripChars(num_raw).replaceAll(' ', '');
+    if (isNumber(num_raw)) num_raw = num_raw.toString();
+    if (!isString(num_raw)) return '';
+    num_raw = stripChars(num_raw).replaceAll(' ', '');
     if (!num_raw) return '';
     return callingCode + num_raw;
 }
@@ -24,7 +25,6 @@ export function formatPhoneNumber(num, code = 'US') {
 
     const formatted = formatIncompletePhoneNumber(reformatted, code);
     let phoneNumber = formatted.substring(formatted.indexOf(getCountryCallingCode(code)) + calling_code.length).trim();
-
     //Below if fix for bug in libphonenumber-js
     if (phoneNumber.right(1) === ')') phoneNumber = phoneNumber.left(phoneNumber.length - 1);
 
