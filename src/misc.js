@@ -120,6 +120,10 @@ export function trimIfString(x) {
 }
 
 export function isNull(val) {
+    if (typeof val === 'undefined') return true;
+    if (val === null) return true;
+    if (val ==='null') return true;
+    if (typeof val === 'string') return val.trim() === '';
     return val == null;
 }
 
