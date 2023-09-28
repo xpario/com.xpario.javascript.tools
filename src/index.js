@@ -5,7 +5,7 @@ import SimpleCrypto  from "./encrypt";
 import * as Tools from "./misc";
 import * as Dates from "./dates";
 import * as Telephone from "./telephone";
-import debounce from "./debounce";
+import PressableManager from "./pressables";
 
 
-export {Array, String, Number, SimpleCrypto, Tools, Dates, Telephone, debounce}
+export {Array, String, Number, SimpleCrypto, Tools, Dates, Telephone, PressableManager};
