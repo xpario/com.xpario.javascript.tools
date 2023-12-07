@@ -127,6 +127,11 @@ export function isNull(val) {
     return val == null;
 }
 
+export function ifNull(val, defaultVal) {
+    if (isNull(val)) return defaultVal;
+    return val;
+}
+
 export function isNullOrUndefined(val) {
     return isNull(val) || !isDefined(val);
 }
