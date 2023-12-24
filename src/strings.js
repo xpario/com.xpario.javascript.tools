@@ -1,13 +1,4 @@
-
 // noinspection JSUnusedGlobalSymbols
-
-String.prototype.jsonMinify = function () {
-    let result = this;
-    if (this.isJSON()) {
-        result = JSON.stringify(JSON.parse(this));
-    }
-    return result;
-}
 
 String.prototype.jsonMinify = function () {
     let result = this;
@@ -33,7 +24,7 @@ String.prototype.left = function (n) {
 }
 
 String.prototype.right = function (n) {
-    return this.slice( -(n) );
+    return this.slice(-(n));
 }
 
 String.prototype.brackets = function () {
@@ -88,6 +79,12 @@ String.prototype.fromHex = function () {
     for (let i = 0; i < this.length; i += 2) {
         result += String.fromCharCode(parseInt(this.substring(i, i + 2), 16));
     }
+    return result;
+}
+
+String.prototype.escapeSingleQuotes = function () {
+    let result = this;
+    result = this.replace(/’/g, "\\\\'");
     return result;
 }
 
