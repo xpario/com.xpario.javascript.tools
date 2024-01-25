@@ -1,0 +1,16 @@
+npm-debug.*
+node_modules/
+dist/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# sublime text
+theme.sublime-project
+theme.sublime-workspace
+
+# macOS
+.DS_Store

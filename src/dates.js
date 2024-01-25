@@ -35,3 +35,23 @@ export function compare(date1, date2) {
     return 0;
 
 }
+
+export function isValidDateString(dateString) {
+    const date = new Date(dateString);
+
+    // Check if the date is invalid
+    if (isNaN(date.getTime())) {
+        return false;
+    } else {
+        // Check if the dateString gets back to the same date
+        let parsedDate = date.toISOString().split('T')[0];
+        return dateString === parsedDate;
+    }
+}
+
+export function isValidDate(date, required = true) {
+    if (!required) return true;
+
+    // Check if the input is a Date object and it represents a valid date
+    return date instanceof Date && !isNaN(date.getTime());
+}

@@ -1,17 +1,17 @@
 {
   "name": "@xpario/javascript-tools",
   "description": "Various helper methods for Javascript",
-  "version": "0.5.122",
+  "version": "0.5.125",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "crypto-es": "^2.0.4",
-    "libphonenumber-js": "1.10.48"
+    "crypto-es": "^2.1.0",
+    "libphonenumber-js": "1.10.54"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "repository": {
     "type": "git",
