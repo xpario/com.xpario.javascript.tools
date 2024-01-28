@@ -1,5 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
+import {defaultLocale} from "./locales";
+
 String.prototype.jsonMinify = function () {
     let result = this;
     if (this.isJSON()) {
@@ -85,6 +87,24 @@ String.prototype.fromHex = function () {
 String.prototype.escapeSingleQuotes = function () {
     let result = this;
     result = this.replace(/’/g, "\\\\'");
+    return result;
+}
+
+String.prototype.toFloat = function (objLocale = defaultLocale) {
+
+    const allWhitespace = new RegExp("[\\s\\u00A0]", 'g');
+    let result = this.replace(allWhitespace, '');
+
+    const digitGroupingSeparator = new RegExp(objLocale.digitGroupingSeparator, 'g');
+    result = result.replace(digitGroupingSeparator, '');
+
+    result = result.replace(objLocale.currencyCode, '');
+    result = result.replace(objLocale.currencySymbol, '');
+    result = result.replace(objLocale.decimalSeparator, '.');
+
+    result = parseFloat(result);
+
+    if (isNaN(result)) return null;
     return result;
 }
 

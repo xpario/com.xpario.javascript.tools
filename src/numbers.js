@@ -1,5 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
+//import {getCurrentLanguageTag} from "./locales";
+
 const length_factor = 3.281;
 const mass_factor = 2.205;
 
@@ -21,6 +23,15 @@ Number.prototype.covertKGToLbs = function () {
 
 Number.safeToString = function (value) {
     return (value === undefined || value === null) ? '' : value.toString();
+}
+
+Number.prototype.toFormattedString = function (maxDecimals = 2, minDecimals = 0, languageTag = 'en-US') {
+
+    return Intl.NumberFormat(languageTag, {
+            maximumFractionDigits: maxDecimals,
+            minimumFractionDigits: minDecimals
+        }
+    ).format(this);
 }
 
 export default Number;

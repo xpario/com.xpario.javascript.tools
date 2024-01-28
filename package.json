@@ -1,7 +1,7 @@
 {
   "name": "@xpario/javascript-tools",
   "description": "Various helper methods for Javascript",
-  "version": "0.5.125",
+  "version": "0.6.137",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
