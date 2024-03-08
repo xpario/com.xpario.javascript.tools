@@ -113,15 +113,14 @@ function splitDecimalString(decimalString, decimalSeparator) {
 }
 
 String.prototype.toLocaleFloat = function (objLocale = defaultLocale) {
-
 	if (this.isBlank()) return null;
 
-	const digitGroupingSeparator = objLocale.digitGroupingSeparator;
-	const allWhitespace = new RegExp("[\\s\\u00A0]", 'g');
-	const trimmedValue = this.replace(allWhitespace, '');
-	const objDecimal = splitDecimalString(trimmedValue, digitGroupingSeparator);
-	const strDecimal = objDecimal.numberPart.replace(/\D/g, '') + '.' + objDecimal.decimalPart;
-	const result = parseFloat(strDecimal);
+	const decimalSeparator = objLocale.decimalSeparator;
+	const regexWhitespace = new RegExp("[\\s\\u00A0]", 'g');
+	const trimmedValue = this.replace(regexWhitespace, '');
+	const objDecimal = splitDecimalString(trimmedValue, decimalSeparator);
+	const strValue = objDecimal.numberPart.replace(/\D/g, '') + '.' + objDecimal.decimalPart;
+	const result = parseFloat(strValue);
 
 	if (isNaN(result)) return null;
 	return result;
